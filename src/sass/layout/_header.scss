@@ -31,7 +31,7 @@
     display: none;
     padding-top: 40px;
     padding-left: 10px;
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.2;
@@ -71,7 +71,7 @@
 
 .sitenav__link {
     text-decoration: none;
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.2;
@@ -81,7 +81,7 @@
 
 .sitenav__linkcurrent {
     text-decoration: none;
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.2;
@@ -119,7 +119,7 @@
 }
 
 .header__searchname {
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
@@ -143,7 +143,7 @@
     max-width: 75%;
     margin-top: -75px;
     text-align: left;
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.1;
@@ -196,7 +196,7 @@ li {
 
 .library__link {
     margin: 0 10px;
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     width: 129px;
     height: 44px;
     border: 1px solid var(--main-text-color);
@@ -235,7 +235,7 @@ li {
     margin: 0 0 0 auto;
     background-color: transparent;
     color: var(--main-text-color);
-    font-family: 'DM Sans';
+    font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.2;
@@ -256,6 +256,7 @@ li {
 }
 
 .header__forminput {
+    font-family: 'DM Sans', sans-serif;
     width: 100%;
 }
 
