@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { headerError } from '../utils/references';
+import { headerError } from '../utils/references';
 import { API_KEY, BASE_URL, MEDIA_TYPE, TIME_WINDOW } from '../utils/constants';
 
 export default class MoviesApiService {

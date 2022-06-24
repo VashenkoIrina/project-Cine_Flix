@@ -129,26 +129,13 @@
 .header__button {
     background: transparent;
     margin-left: auto;
-    transform: scale(1);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    padding-right: 44px;
-
-    &:hover,
-    &:focus {
-        transform: scale(1.5);
-        fill: var(--header-btn-hover-color);
-    }
+    padding-right: 30px;
 }
 
 .header__svg {
     margin-left: auto;
     fill: var(--modal-first-text-color);
-
-    &:hover,
-    &:focus {
-        fill: var(--header-btn-hover-color);
-    }
 }
 
 .header__error {
