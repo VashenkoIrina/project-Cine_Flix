@@ -7,11 +7,15 @@ import {
   logoutBtn,
   navLibrary,
   openModalFilm,
+  watchedBtn,
+  queueBtn,
   leftBtn,
   rightBtn,
 } from '../utils/references';
 import { onPaginationBtnClick } from '../js-partials/pagination-btn-click';
 import { onClickHomePage } from '../js-partials/tranding-gallery';
+import { clickButWatched } from '../service/header-library-click';
+import { clickButQueue } from '../service/header-queue-click';
 import { openModal } from '../js-partials/open-modal';
 import { onResize } from '../utils/pagination-resize';
 
@@ -33,6 +37,8 @@ openModalFilm.addEventListener('click', openModal);
 window.addEventListener('resize', onResize);
 
 navLibrary.addEventListener('click', setMyLibraryStyles);
+watchedBtn.addEventListener('click', clickButWatched);
+queueBtn.addEventListener('click', clickButQueue);
 logoutBtn.addEventListener('click', logOut);
 leftBtn.addEventListener('click', onLeftButtonClick);
 rightBtn.addEventListener('click', onRightButtonClick);

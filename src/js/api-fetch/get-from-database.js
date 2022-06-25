@@ -8,9 +8,9 @@ function getUserDataAllWatched(userId) {
         } else {
             console.log("No data available");
         }
-        }).catch((error) => {
+    }).catch((error) => {
         console.error(error);
-        });
+    });
 }
 
 function getUserDataAllQueue(userId) {
@@ -21,9 +21,9 @@ function getUserDataAllQueue(userId) {
         } else {
             console.log("No data available");
         }
-        }).catch((error) => {
+    }).catch((error) => {
         console.error(error);
-        });
+    });
 }
 
-export {getUserDataAllWatched , getUserDataAllQueue}
+export { getUserDataAllWatched, getUserDataAllQueue }

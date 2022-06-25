@@ -1,8 +1,9 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyC-XNdgti7GBLy8h7z_PzOkHZqqUSMLNnw",
-    authDomain: "cineflixfilm-5a914.firebaseapp.com",
-    projectId: "cineflixfilm-5a914",
-    storageBucket: "cineflixfilm-5a914.appspot.com",
-    messagingSenderId: "734843750643",
-    appId: "1:734843750643:web:8570f12175ee55e4c60f86"
+    apiKey: "AIzaSyAMQBKE0LsHmMVczHmNvXQYSEQXibGeA-M",
+    authDomain: "fs44js-team-proj.firebaseapp.com",
+    databaseURL: "https://fs44js-team-proj-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "fs44js-team-proj",
+    storageBucket: "fs44js-team-proj.appspot.com",
+    messagingSenderId: "160078472353",
+    appId: "1:160078472353:web:f31cf36c72f9212e3ebce0"
 };

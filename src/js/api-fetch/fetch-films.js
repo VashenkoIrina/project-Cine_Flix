@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { headerError } from '../utils/references';
 import { headerError } from '../utils/references';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { spinnerRef } from '../utils/spinner';
 import { API_KEY, BASE_URL, MEDIA_TYPE, TIME_WINDOW } from '../utils/constants';
 
 export default class MoviesApiService {
@@ -11,6 +13,7 @@ export default class MoviesApiService {
 
   async fetchMovies() {
     headerError.textContent = '';
+    Loading.hourglass('Loading...', spinnerRef);
 
     try {
       const response = await axios.get(`${BASE_URL}${this.request}`, {

@@ -3,6 +3,8 @@ import { userId } from '../service/login';
 import { getData } from '../api-fetch/get-film-api';
 import { modalFilmContainer } from '../utils/references';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { addMovieToDatabase } from '../service/add-muvie-to-database';
+import { getUserDataAllWatched, getUserDataAllQueue } from '../api-fetch/get-from-database';
 import { closeBacdropClick } from '../service/close-backdrop-modal';
 
 function modalMarkup(muvieId) {
@@ -73,6 +75,7 @@ function modalMarkup(muvieId) {
         const backdrop = document.querySelector('.backdrop');
         closeBacdropClick(closeModalBtn, backdrop);
 
+
         const addToWatchedEl = document.querySelector('.watched__btn');
         addToWatchedEl.addEventListener('click', () => {
             addMovieToDatabase(WATCHED, userId, muvieId, data, addToWatchedEl, addToQueueEl);
@@ -80,11 +83,13 @@ function modalMarkup(muvieId) {
 
         const addToQueueEl = document.querySelector('.queue__btn');
         addToQueueEl.addEventListener('click', () => {
+            console.log(userId)
             addMovieToDatabase(QUEUE, userId, muvieId, data, addToWatchedEl, addToQueueEl);
         });
         if (userId) {
             updateModalButtons(muvieId, addToWatchedEl, addToQueueEl);
         }
+
     });
 }
 
@@ -111,6 +116,5 @@ async function updateModalButtons(muvieId, addToWatchedEl, addToQueueEl) {
     addToQueueEl.textContent = (isQueue) ? "remove from queue" : "add to queue";
     addToQueueEl.dataset.action = (isQueue) ? "remove" : "add";
 }
-
 
 export { modalMarkup, updateModalButtons }

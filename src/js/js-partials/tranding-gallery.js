@@ -34,4 +34,5 @@ export async function onClickHomePage(e) {
   moviesApiService.resetPage();
 
   await loadHomePageHeader();
+  await loadTrandingPage();
 }
