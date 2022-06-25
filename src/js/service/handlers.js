@@ -4,6 +4,7 @@ import {
   navHome,
   headerTitle,
   headerLogo,
+  logoutBtn,
   navLibrary,
   openModalFilm,
   leftBtn,
@@ -14,6 +15,7 @@ import { onClickHomePage } from '../js-partials/tranding-gallery';
 import { openModal } from '../js-partials/open-modal';
 import { onResize } from '../utils/pagination-resize';
 
+import { logOut } from '../service/login';
 import { setMyLibraryStyles } from '../markup/header-library';
 import { onLeftButtonClick } from '../js-partials/pagination-arrows';
 import { onRightButtonClick } from '../js-partials/pagination-arrows';
@@ -31,6 +33,7 @@ openModalFilm.addEventListener('click', openModal);
 window.addEventListener('resize', onResize);
 
 navLibrary.addEventListener('click', setMyLibraryStyles);
+logoutBtn.addEventListener('click', logOut);
 leftBtn.addEventListener('click', onLeftButtonClick);
 rightBtn.addEventListener('click', onRightButtonClick);
 

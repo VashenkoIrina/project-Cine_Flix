@@ -1,4 +1,5 @@
 import { WATCHED, QUEUE, imagesBaseUrl, imageNull } from '../utils/constants';
+import { userId } from '../service/login';
 import { getData } from '../api-fetch/get-film-api';
 import { modalFilmContainer } from '../utils/references';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
@@ -58,8 +59,8 @@ function modalMarkup(muvieId) {
                             <h3 class="text__title">About</h3>
                             <p class="modal__text">${overview}</p>
                             <div class="modal__buttons">
-                                <button class="modal__button watched__btn type="button" >add to watched</button>
-                                <button class="modal__button queue__btn type="button" >add to queue</button>
+                                <button class="modal__button watched__btn ${userId ? "" : "visually-hidden"}" type="button" >add to watched</button>
+                                <button class="modal__button queue__btn ${userId ? "" : "visually-hidden"}" type="button" >add to queue</button>
                             </div>
                         </div>
                     </div>
@@ -72,9 +73,44 @@ function modalMarkup(muvieId) {
         const backdrop = document.querySelector('.backdrop');
         closeBacdropClick(closeModalBtn, backdrop);
 
+        const addToWatchedEl = document.querySelector('.watched__btn');
+        addToWatchedEl.addEventListener('click', () => {
+            addMovieToDatabase(WATCHED, userId, muvieId, data, addToWatchedEl, addToQueueEl);
+        });
 
+        const addToQueueEl = document.querySelector('.queue__btn');
+        addToQueueEl.addEventListener('click', () => {
+            addMovieToDatabase(QUEUE, userId, muvieId, data, addToWatchedEl, addToQueueEl);
+        });
+        if (userId) {
+            updateModalButtons(muvieId, addToWatchedEl, addToQueueEl);
+        }
     });
 }
 
+async function updateModalButtons(muvieId, addToWatchedEl, addToQueueEl) {
+    const watchedIdArr = await getUserDataAllWatched(userId).then(data => {
+        if (!data) {
+            return [];
+        }
+        return Object.keys(data);
+    });
 
-export { modalMarkup }
+    const isWatched = watchedIdArr.includes(muvieId);
+    addToWatchedEl.textContent = (isWatched) ? "remove from watched" : "add to watched";
+    addToWatchedEl.dataset.action = (isWatched) ? "remove" : "add";
+
+    const queueIdArr = await getUserDataAllQueue(userId).then(data => {
+        if (!data) {
+            return [];
+        }
+        return Object.keys(data);
+    });
+
+    const isQueue = queueIdArr.includes(muvieId);
+    addToQueueEl.textContent = (isQueue) ? "remove from queue" : "add to queue";
+    addToQueueEl.dataset.action = (isQueue) ? "remove" : "add";
+}
+
+
+export { modalMarkup, updateModalButtons }
